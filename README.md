@@ -1,6 +1,6 @@
 # SENTINEL DRONE
 
-This repository contains all files which we submitted for each task
+This repository contains all files which we submitted for each task in e-YRC 2023
 
 
 # Project Member :
