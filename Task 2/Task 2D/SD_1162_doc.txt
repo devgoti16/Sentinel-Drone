@@ -1,0 +1,25 @@
+Firstly the class of object detection has been made which starts ass soon as code starts and it has subscribe to the topic /edrone/camera_rgb/image_raw which gives frames of camera .
+
+Open Cv code runs to convert ros image to opencv image and then use color detection to get mask
+
+going through all the contours and to get centreif some conditions are satisfied
+next centre is found and lat long algorithm is runned
+long lat algorithm :
+   first gdal wrap has been done for task2d.tif file and then orb feature
+   matching algorithm is runned for frame image and tif file of satellite image
+   all the feature matching points are stored in list_kp1 and list_kp2
+   now getgeotransform is runnerto get corresponding lat long values of matched
+   feature points of satellite image. they are stored in kp_lat_long.
+   now gdal tranlste is used on aerial image(frame image) using featured matched 
+   coordinated of aerial image and lat long of satellite values
+   map-with-gcps.tif file is obtained which haserror in referencing whisch is
+   coreected using gdalwrap 
+   we now got correct lat long faature matching points using which we can find
+   lat long of caentre of image
+now this lat long values are passed through geolocation topic
+
+hovering alorigthm can be seen in the code in def main()
+
+two issue whhich we can't solve due to workload
+1) getting one frame only for one object
+2) not able to plot on open street map even though lat long values are passinbg through topic 
